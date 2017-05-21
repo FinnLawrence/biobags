@@ -12,6 +12,21 @@ $(document).ready(function() {
         showCursor: false,
         onStringTyped: fader.fadeLogo
     });
+
+    // SMOOTH SCROLL
+    $('a.smooth-scroll').click(function(){
+        if ($.attr(this, 'href') === "#") {
+            return true; // No target
+        } else {
+            var current = $(window).scrollTop();
+            var target = $( $.attr(this, 'href') ).offset().top;
+            var duration = Math.abs(target - current) / 1.5;
+            $('html, body').animate({
+                scrollTop: target
+            }, duration);
+            return false;
+        }
+    });
 });
 
 $(window).scroll(function() {
@@ -19,6 +34,7 @@ $(window).scroll(function() {
         fader.fadeSectionContent($(this));
     });
 
+    fader.fadeNav();
     fader.fadeContactForm();
 });
 
@@ -62,5 +78,18 @@ const fader = {
     },
     fadeLogo: function() {
         $('#porter-logo').addClass("visible");
+    },
+    fadeNav: function() {
+        var viewportTop = $(document).scrollTop();
+        var start = window.innerHeight / 2;
+        var end = window.innerHeight;
+
+        if (viewportTop > end) {
+            $('nav').css("opacity", 1);
+        } else if (viewportTop > start) {
+            $('nav').css("opacity", (viewportTop - start) / (end - start));
+        } else {
+            $('nav').css("opacity", 0);
+        }
     }
 }

@@ -61,6 +61,14 @@ section.full-screen {
     width: 66.666667%;
 }
 
+.container.fade-content {
+    opacity: 0;
+}
+
+.no-js .container.fade-content {
+    opacity: 1;
+}
+
 .logo-wrapper {
     display: flex;
     justify-content: flex-end;
@@ -109,6 +117,23 @@ p.message {
 
 .hidden {
     opacity: 0;
+}
+
+/* NAV */
+
+nav {
+    padding: 2.5vw;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    opacity: 0;
+    
+    .nav-title {
+        font-size: 4vw;
+        text-decoration: none;
+        color: {{ site.color-green-primary }};
+    }
 }
 
 /* FORM */
@@ -191,6 +216,40 @@ form.full-width {
         opacity: 1;
         visibility: visible;
     }
+}
+
+/* FOOTER / SOCIAL */
+
+.social-icons {
+    width: 5vw;
+    
+    a {
+        
+        svg {
+            margin-top: 1vw;
+            max-width: 100%;
+            
+            path {
+                fill: {{ site.color-green-primary }} !important;
+                @include transition(all 0.3s);
+            }
+        }
+    }
+    
+    a:hover, a:active {
+        svg {
+            
+            path {
+                fill: {{ site.color-green-primary-hover }} !important;
+            }
+        }
+    }
+}
+
+.social-icons.fixed-bottom-right {
+    position: fixed;
+    bottom: 2.5vw;
+    right: 2.5vw;
 }
 
 /* UTILITY */
