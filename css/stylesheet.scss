@@ -1,0 +1,170 @@
+---
+---
+
+@import "normalize";
+@import "font";
+
+@mixin transform($transforms) {
+    -moz-transform: $transforms;
+    -o-transform: $transforms;
+    -ms-transform: $transforms;
+    -webkit-transform: $transforms;
+    transform: $transforms;
+}
+
+@mixin transition($transition) {
+    -moz-transition:    $transition;
+    -o-transition:      $transition;
+    -webkit-transition: $transition;
+    transition:         $transition;
+}
+
+html, body {
+    font-family: 'Adelle', sans-serif;
+    background-color: {{ site.color-green-bg }};
+}
+
+h1, h2, h3, h4, h5, h6, p, ul, ol, li {
+    color: {{ site.color-green-primary }};
+}
+
+section {
+    display: flex;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+section.centered-content {
+    justify-content: center;
+    align-items: center;
+}
+
+section.full-screen {
+    min-height: 100vh
+}
+
+.container {
+    width: 100%;
+}
+
+.container.col-6 {
+    width: 50%;
+}
+
+.container.col-8 {
+    width: 66.666667%;
+}
+
+/* FONT */
+
+.font-biobags {
+    font-family: 'Circular Std', sans-serif;
+}
+
+h1.main-title {
+    font-size: 11.3vw;
+}
+
+p.message {
+    font-size: 3.2vw;
+}
+
+.hidden {
+    opacity: 0;
+}
+
+/* FORM */
+
+form {
+    
+    input[type=text], input[type=email], textarea, .btn {
+        box-sizing: border-box;
+        border: 0px;
+        margin: 0.6vw 0px;
+        font-size: 2vw;
+        font-family: 'Adelle', sans-serif;
+        border-radius: 2px;
+    }
+    
+    input[type=text], input[type=email], textarea {
+        background-color: {{ site.color-green-accent }};
+        color: {{ site.color-green-primary }};
+        padding: 1vw 1.5vw;
+    }
+    
+    .btn {
+        background-color: {{ site.color-green-mid }};
+        color: {{ site.color-green-bg }};
+        padding: 1vw 3.5vw;
+        cursor: pointer;
+        @include transition(all 0.3s);
+    }
+    
+    .btn:hover, .btn:active {
+        background-color: {{ site.color-green-primary }};
+    }
+    
+    :focus {
+        outline: none;
+    }
+
+    ::placeholder {
+        color: {{ site.color-green-primary }};
+        font-family: 'Adelle', sans-serif;
+    }
+    ::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+        color: {{ site.color-green-primary }};
+        font-family: 'Adelle', sans-serif;
+    }
+    ::-moz-placeholder { /* Firefox 19+ */
+        color: {{ site.color-green-primary }};
+        font-family: 'Adelle', sans-serif;
+    }
+    :-ms-input-placeholder { /* IE 10+ */
+        color: {{ site.color-green-primary }};
+        font-family: 'Adelle', sans-serif;
+    }
+    :-moz-placeholder { /* Firefox 18- */
+        color: {{ site.color-green-primary }};
+        font-family: 'Adelle', sans-serif;
+    }
+}
+
+form.full-width {
+    padding-top: 20px;
+    
+    input[type=text], input[type=email], textarea {
+        width: 100%;
+    }
+}
+
+#contact-form {
+    .fade-in {
+        position: relative;
+        top: -30px;
+        @include transition(all 0.2s);
+        transition-timing-function: ease-in-out;
+        opacity: 0;
+        visibility: hidden;
+    }
+    
+    .fade-in.visible {
+        top: 0px;
+        opacity: 1;
+        visibility: visible;
+    }
+}
+
+/* UTILITY */
+
+.left-align {
+    text-align: left;
+}
+
+.center-align {
+    text-align: center;
+}
+
+.right-align {
+    text-align: right;
+}
