@@ -1,8 +1,24 @@
+$(document).ready(function() {
+    $("#title-bio").typed({
+        strings: ["bio"],
+        typeSpeed: 500,
+        startDelay: 500,
+        showCursor: false
+    });
+    $("#title-bags").typed({
+        strings: ["bags"],
+        typeSpeed: 400,
+        startDelay: 1000,
+        showCursor: false,
+        onStringTyped: fader.fadeLogo
+    });
+});
+
 $(window).scroll(function() {
     $('.fade-wrapper').each(function() {
         fader.fadeSectionContent($(this));
     });
-    
+
     fader.fadeContactForm();
 });
 
@@ -43,5 +59,8 @@ const fader = {
                 time += interval;
             });
         }
+    },
+    fadeLogo: function() {
+        $('#porter-logo').addClass("visible");
     }
 }

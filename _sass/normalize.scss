@@ -22,7 +22,7 @@ html {
  * Remove the margin in all browsers (opinionated).
  */
 
-body, h1, h2, h3, h4, h5, h6, p {
+body {
   margin: 0;
 }
 
@@ -444,4 +444,8 @@ template {
 
 [hidden] {
   display: none;
+}
+
+h1, h2, h3, h4, h5, h6, p {
+  margin: 0;
 }

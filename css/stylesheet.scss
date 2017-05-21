@@ -24,6 +24,12 @@ html, body {
     background-color: {{ site.color-green-bg }};
 }
 
+.js {
+    .no-js-fallback {
+        display: none;
+    }
+}
+
 h1, h2, h3, h4, h5, h6, p, ul, ol, li {
     color: {{ site.color-green-primary }};
 }
@@ -53,6 +59,38 @@ section.full-screen {
 
 .container.col-8 {
     width: 66.666667%;
+}
+
+.logo-wrapper {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding-top: 2%;
+    @include transition(all 1s);
+    opacity: 0;
+    visibility: hidden;
+    
+    p {
+        display: inline-block;
+    }
+    
+    .logo {
+        display: inline-block;
+        width: 20vw;
+        
+        svg {
+            max-width: 100%;
+            
+            path {
+                fill: {{ site.color-green-primary }} !important;
+            }
+        }
+    }
+}
+
+.logo-wrapper.visible {
+    opacity: 1;
+    visibility: visible;
 }
 
 /* FONT */
@@ -141,7 +179,7 @@ form.full-width {
 #contact-form {
     .fade-in {
         position: relative;
-        top: -30px;
+        top: -1vw;
         @include transition(all 0.2s);
         transition-timing-function: ease-in-out;
         opacity: 0;
