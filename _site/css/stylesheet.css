@@ -542,7 +542,7 @@ form.full-width {
   form.full-width input[type=text], form.full-width input[type=email], form.full-width textarea {
     width: 100%; }
 
-#contact-form .fade-in {
+.form-animated .fade-in {
   position: relative;
   top: -1vw;
   -moz-transition: all 0.2s;
@@ -552,7 +552,7 @@ form.full-width {
   transition-timing-function: ease-in-out;
   opacity: 0;
   visibility: hidden; }
-#contact-form .fade-in.visible {
+.form-animated .fade-in.visible {
   top: 0px;
   opacity: 1;
   visibility: visible; }

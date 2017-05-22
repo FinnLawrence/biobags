@@ -29,14 +29,18 @@ title: Biobags
 
 <section id="contact" class="full-screen centered-content fade-wrapper">
     <div class="container col-6 center-align fade-content">
-        <p class="message">Let us help - get in touch.</p>
-        <form id="contact-form" class="full-width" autocomplete="off">
-            <input class="fade-in" type="email" placeholder="email">
-            <input class="fade-in" type="text" placeholder="company name">
-            <input class="fade-in" type="text" placeholder="name">
-            <textarea class="fade-in" placeholder="message"></textarea>
-            <input class="fade-in btn" type="submit" value="submit">
-        </form>
+        <div id="contact-wrapper">
+            <div id="contact-form">
+                <p class="message">Let us help - get in touch.</p>
+                <form class="full-width form-animated" autocomplete="off">
+                    <input class="fade-in" type="email" placeholder="email">
+                    <input class="fade-in" type="text" placeholder="company name">
+                    <input class="fade-in" type="text" placeholder="name">
+                    <textarea class="fade-in" placeholder="message"></textarea>
+                    <input class="fade-in btn" type="submit" value="submit">
+                </form>
+            </div>
+        </div>
         <div class="social-icons fixed-bottom-right">
             <a href="" target="_blank" class="social-link social-link-facebook">
                 {% include facebook-logo.html %}
