@@ -1,14 +1,15 @@
 ---
 layout: index
 title: Biobags
+description: TODO
 ---
 
-<section id="home" class="full-screen centered-content">
-    <div class="container col-6 right-align">
+<section id="home" class="full-screen centered-content fade-wrapper">
+    <div class="container col-6 right-align fade-content">
         <h1 class="main-title font-biobags"><span class="no-js-fallback">biobags</span><span id="title-bio"></span><span id="title-bags"></span></h1>
         <div id="porter-logo" class="logo-wrapper">
             <p class="message">by</p>
-            <a href="" target="_blank" class="logo">
+            <a href="http://porterpackaging.co.nz" target="_blank" class="logo">
                 {% include porter-logo.html %}
             </a>
         </div>
@@ -30,22 +31,39 @@ title: Biobags
 <section id="contact" class="full-screen centered-content fade-wrapper">
     <div class="container col-6 center-align fade-content">
         <div id="contact-wrapper">
-            <div id="contact-form">
+            <div id="contact-form" class="contact-section">
                 <p class="message">Let us help - get in touch.</p>
-                <form class="full-width form-animated" autocomplete="off">
-                    <input class="fade-in" type="email" placeholder="email">
-                    <input class="fade-in" type="text" placeholder="company name">
-                    <input class="fade-in" type="text" placeholder="name">
-                    <textarea class="fade-in" placeholder="message"></textarea>
+                <form method="post" action="/success" class="full-width form-animated" autocomplete="off">
+                    <input name="Email Address" class="fade-in" type="email" placeholder="email">
+                    <input name="Company Name" class="fade-in" type="text" placeholder="company name">
+                    <input name="Name" class="fade-in" type="text" placeholder="name">
+                    <textarea name="Message" class="fade-in" placeholder="message"></textarea>
+
+                    <input type="hidden" name="_to" value="finn.lawrence@gmail.com">
+                    <input type="text" name="_gotcha" style="display: none;">
+
                     <input class="fade-in btn" type="submit" value="submit">
                 </form>
             </div>
+            <div id="contact-loading" class="contact-section contact-section-pane">
+                <div class="spinner">
+                    <div class="bounce1"></div>
+                    <div class="bounce2"></div>
+                    <div class="bounce3"></div>
+                </div>
+            </div>
+            <div id="contact-complete" class="contact-section contact-section-pane">
+                <p class="message">Thanks for your message.<br>You'll hear back from us shortly.</p>
+            </div>
         </div>
         <div class="social-icons fixed-bottom-right">
-            <a href="" target="_blank" class="social-link social-link-facebook">
+            <a href="https://www.instagram.com/biobags_nz/" target="_blank" class="social-link social-link-instagram">
+                {% include instagram-logo.html %}
+            </a>
+            <a href="https://www.facebook.com/BioBags-1675647492479812/" target="_blank" class="social-link social-link-facebook">
                 {% include facebook-logo.html %}
             </a>
-            <a href="" target="_blank" class="social-link social-link-facebook">
+            <a href="https://www.linkedin.com/company/porter-packaging" target="_blank" class="social-link social-link-linkedin">
                 {% include linkedin-logo.html %}
             </a>
         </div>

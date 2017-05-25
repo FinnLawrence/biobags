@@ -1,4 +1,5 @@
 $(document).ready(function() {
+    fader.fadeAllSections();
     $("#title-bio").typed({
         strings: ["bio"],
         typeSpeed: 500,
@@ -30,15 +31,18 @@ $(document).ready(function() {
 });
 
 $(window).scroll(function() {
-    $('.fade-wrapper').each(function() {
-        fader.fadeSectionContent($(this));
-    });
+    fader.fadeAllSections();
 
     fader.fadeNav();
     fader.fadeContactForm();
 });
 
 const fader = {
+    fadeAllSections: function() {
+        $('.fade-wrapper').each(function() {
+        fader.fadeSectionContent($(this));
+    });
+    },
     fadeSectionContent: function(section) {
         var top = section.offset().top;
         var bottom = top + section.outerHeight();
@@ -92,4 +96,8 @@ const fader = {
             $('nav').css("opacity", 0);
         }
     }
+}
+
+const contactForm = {
+    
 }

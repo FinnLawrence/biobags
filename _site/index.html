@@ -8,7 +8,7 @@
 <meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
 <title>Biobags</title>
-<meta name="description" content=""/>
+<meta name="description" content="TODO"/>
         <link rel="stylesheet" type="text/css" href="/css/stylesheet.css">
     </head>
     <body>
@@ -18,12 +18,12 @@
 </nav>
         </header>
         <main>
-            <section id="home" class="full-screen centered-content">
-    <div class="container col-6 right-align">
+            <section id="home" class="full-screen centered-content fade-wrapper">
+    <div class="container col-6 right-align fade-content">
         <h1 class="main-title font-biobags"><span class="no-js-fallback">biobags</span><span id="title-bio"></span><span id="title-bags"></span></h1>
         <div id="porter-logo" class="logo-wrapper">
             <p class="message">by</p>
-            <a href="" target="_blank" class="logo">
+            <a href="http://porterpackaging.co.nz" target="_blank" class="logo">
                 <svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 842 180" xmlns:xlink="http://www.w3.org/1999/xlink">
     <defs>
         <clipPath id="Clip0">
@@ -83,19 +83,100 @@
 <section id="contact" class="full-screen centered-content fade-wrapper">
     <div class="container col-6 center-align fade-content">
         <div id="contact-wrapper">
-            <div id="contact-form">
+            <div id="contact-form" class="contact-section">
                 <p class="message">Let us help - get in touch.</p>
-                <form class="full-width form-animated" autocomplete="off">
-                    <input class="fade-in" type="email" placeholder="email">
-                    <input class="fade-in" type="text" placeholder="company name">
-                    <input class="fade-in" type="text" placeholder="name">
-                    <textarea class="fade-in" placeholder="message"></textarea>
+                <form method="post" action="/success" class="full-width form-animated" autocomplete="off">
+                    <input name="Email Address" class="fade-in" type="email" placeholder="email">
+                    <input name="Company Name" class="fade-in" type="text" placeholder="company name">
+                    <input name="Name" class="fade-in" type="text" placeholder="name">
+                    <textarea name="Message" class="fade-in" placeholder="message"></textarea>
+
+                    <input type="hidden" name="_to" value="finn.lawrence@gmail.com">
+                    <input type="text" name="_gotcha" style="display: none;">
+
                     <input class="fade-in btn" type="submit" value="submit">
                 </form>
             </div>
+            <div id="contact-loading" class="contact-section contact-section-pane">
+                <div class="spinner">
+                    <div class="bounce1"></div>
+                    <div class="bounce2"></div>
+                    <div class="bounce3"></div>
+                </div>
+            </div>
+            <div id="contact-complete" class="contact-section contact-section-pane">
+                <p class="message">Thanks for your message.<br>You'll hear back from us shortly.</p>
+            </div>
         </div>
         <div class="social-icons fixed-bottom-right">
-            <a href="" target="_blank" class="social-link social-link-facebook">
+            <a href="https://www.instagram.com/biobags_nz/" target="_blank" class="social-link social-link-instagram">
+                <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+     viewBox="0 0 551.034 551.034" style="enable-background:new 0 0 551.034 551.034;" xml:space="preserve">
+    <g>
+
+        <linearGradient id="SVGID_1_" gradientUnits="userSpaceOnUse" x1="275.517" y1="4.57" x2="275.517" y2="549.72" gradientTransform="matrix(1 0 0 -1 0 554)">
+            <stop  offset="0" style="stop-color:#E09B3D"/>
+            <stop  offset="0.3" style="stop-color:#C74C4D"/>
+            <stop  offset="0.6" style="stop-color:#C21975"/>
+            <stop  offset="1" style="stop-color:#7024C4"/>
+        </linearGradient>
+        <path style="fill:url(#SVGID_1_);" d="M386.878,0H164.156C73.64,0,0,73.64,0,164.156v222.722
+                                              c0,90.516,73.64,164.156,164.156,164.156h222.722c90.516,0,164.156-73.64,164.156-164.156V164.156
+                                              C551.033,73.64,477.393,0,386.878,0z M495.6,386.878c0,60.045-48.677,108.722-108.722,108.722H164.156
+                                              c-60.045,0-108.722-48.677-108.722-108.722V164.156c0-60.046,48.677-108.722,108.722-108.722h222.722
+                                              c60.045,0,108.722,48.676,108.722,108.722L495.6,386.878L495.6,386.878z"/>
+
+        <linearGradient id="SVGID_2_" gradientUnits="userSpaceOnUse" x1="275.517" y1="4.57" x2="275.517" y2="549.72" gradientTransform="matrix(1 0 0 -1 0 554)">
+            <stop  offset="0" style="stop-color:#E09B3D"/>
+            <stop  offset="0.3" style="stop-color:#C74C4D"/>
+            <stop  offset="0.6" style="stop-color:#C21975"/>
+            <stop  offset="1" style="stop-color:#7024C4"/>
+        </linearGradient>
+        <path style="fill:url(#SVGID_2_);" d="M275.517,133C196.933,133,133,196.933,133,275.516s63.933,142.517,142.517,142.517
+                                              S418.034,354.1,418.034,275.516S354.101,133,275.517,133z M275.517,362.6c-48.095,0-87.083-38.988-87.083-87.083
+                                              s38.989-87.083,87.083-87.083c48.095,0,87.083,38.988,87.083,87.083C362.6,323.611,323.611,362.6,275.517,362.6z"/>
+
+        <linearGradient id="SVGID_3_" gradientUnits="userSpaceOnUse" x1="418.31" y1="4.57" x2="418.31" y2="549.72" gradientTransform="matrix(1 0 0 -1 0 554)">
+            <stop  offset="0" style="stop-color:#E09B3D"/>
+            <stop  offset="0.3" style="stop-color:#C74C4D"/>
+            <stop  offset="0.6" style="stop-color:#C21975"/>
+            <stop  offset="1" style="stop-color:#7024C4"/>
+        </linearGradient>
+        <circle style="fill:url(#SVGID_3_);" cx="418.31" cy="134.07" r="34.15"/>
+    </g>
+    <g>
+    </g>
+    <g>
+    </g>
+    <g>
+    </g>
+    <g>
+    </g>
+    <g>
+    </g>
+    <g>
+    </g>
+    <g>
+    </g>
+    <g>
+    </g>
+    <g>
+    </g>
+    <g>
+    </g>
+    <g>
+    </g>
+    <g>
+    </g>
+    <g>
+    </g>
+    <g>
+    </g>
+    <g>
+    </g>
+</svg>
+            </a>
+            <a href="https://www.facebook.com/BioBags-1675647492479812/" target="_blank" class="social-link social-link-facebook">
                 <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
      viewBox="0 0 408.788 408.788" style="enable-background:new 0 0 408.788 408.788;" xml:space="preserve">
     <path style="fill:#475993;" d="M353.701,0H55.087C24.665,0,0.002,24.662,0.002,55.085v298.616c0,30.423,24.662,55.085,55.085,55.085
@@ -137,7 +218,7 @@
 </svg>
 
             </a>
-            <a href="" target="_blank" class="social-link social-link-facebook">
+            <a href="https://www.linkedin.com/company/porter-packaging" target="_blank" class="social-link social-link-linkedin">
                 <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
      viewBox="0 0 382 382" style="enable-background:new 0 0 382 382;" xml:space="preserve">
     <path style="fill:#0077B7;" d="M347.445,0H34.555C15.471,0,0,15.471,0,34.555v312.889C0,366.529,15.471,382,34.555,382h312.889

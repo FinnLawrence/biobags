@@ -557,19 +557,84 @@ form.full-width {
   opacity: 1;
   visibility: visible; }
 
+.spinner {
+  width: 70px;
+  text-align: center; }
+
+.spinner > div {
+  width: 18px;
+  height: 18px;
+  background-color: #137048;
+  border-radius: 100%;
+  display: inline-block;
+  -webkit-animation: bouncedelay 1.4s infinite ease-in-out both;
+  animation: bouncedelay 1.4s infinite ease-in-out both; }
+
+.spinner .bounce1 {
+  -webkit-animation-delay: -0.32s;
+  animation-delay: -0.32s; }
+
+.spinner .bounce2 {
+  -webkit-animation-delay: -0.16s;
+  animation-delay: -0.16s; }
+
+@-webkit-keyframes bouncedelay {
+  0%, 80%, 100% {
+    -webkit-transform: scale(0); }
+  40% {
+    -webkit-transform: scale(1); } }
+@keyframes bouncedelay {
+  0%, 80%, 100% {
+    -webkit-transform: scale(0);
+    transform: scale(0); }
+  40% {
+    -webkit-transform: scale(1);
+    transform: scale(1); } }
+#contact-wrapper {
+  position: relative; }
+  #contact-wrapper .contact-section {
+    -moz-transition: opacity 0.3s;
+    -o-transition: opacity 0.3s;
+    -webkit-transition: opacity 0.3s;
+    transition: opacity 0.3s; }
+  #contact-wrapper .contact-section-pane {
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    bottom: 0px;
+    left: 0px;
+    display: flex;
+    justify-content: center;
+    align-items: center; }
+  #contact-wrapper #contact-form {
+    position: relative;
+    z-index: 10; }
+  #contact-wrapper #contact-loading, #contact-wrapper #contact-complete {
+    opacity: 0; }
+
+#contact-wrapper.loading #contact-form {
+  opacity: 0; }
+#contact-wrapper.loading #contact-loading {
+  opacity: 1; }
+
+#contact-wrapper.complete #contact-form {
+  opacity: 0; }
+#contact-wrapper.complete #contact-complete {
+  opacity: 1; }
+
 /* FOOTER / SOCIAL */
 .social-icons {
   width: 5vw; }
   .social-icons a svg {
     margin-top: 1vw;
     max-width: 100%; }
-    .social-icons a svg path {
+    .social-icons a svg path, .social-icons a svg circle {
       fill: #137048 !important;
       -moz-transition: all 0.3s;
       -o-transition: all 0.3s;
       -webkit-transition: all 0.3s;
       transition: all 0.3s; }
-  .social-icons a:hover svg path, .social-icons a:active svg path {
+  .social-icons a:hover svg path, .social-icons a:hover svg circle, .social-icons a:active svg path, .social-icons a:active svg circle {
     fill: #2D8A62 !important; }
 
 .social-icons.fixed-bottom-right {
