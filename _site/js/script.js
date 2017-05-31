@@ -1,5 +1,16 @@
 $(document).ready(function() {
+    
+    $('#form-contact').submit(function(event) {
+        
+        contactForm.setFormStatus("loading");
+        
+        var formElement = document.getElementById("form-contact");
+        
+        contactForm.submitForm(event, formElement);
+    });
+    
     fader.fadeAllSections();
+    
     $("#title-bio").typed({
         strings: ["bio"],
         typeSpeed: 500,
@@ -40,8 +51,8 @@ $(window).scroll(function() {
 const fader = {
     fadeAllSections: function() {
         $('.fade-wrapper').each(function() {
-        fader.fadeSectionContent($(this));
-    });
+            fader.fadeSectionContent($(this));
+        });
     },
     fadeSectionContent: function(section) {
         var top = section.offset().top;
@@ -99,5 +110,34 @@ const fader = {
 }
 
 const contactForm = {
-    
+    getFormData: function(formElement) {
+        var formData = new FormData(formElement),
+            data = [];
+
+        for (var key of formData) {
+            data.push(encodeURIComponent(key[0]) + "=" + encodeURIComponent(key[1]));
+        }
+
+        return data.join("&");
+    },
+    submitForm: function(event, formElement) {
+        event.preventDefault();
+
+        var request = new XMLHttpRequest();
+
+        request.addEventListener("load", contactForm.formSubmitted(request));
+
+        request.open(formElement.method, formElement.action);
+        request.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+        request.send(contactForm.getFormData(formElement));
+    },
+    formSubmitted: function(request) {
+        console.log(request.status);
+        if (request.status === 302) {
+            contactForm.setFormStatus("complete");
+        }
+    },
+    setFormStatus: function(status) {
+        $('#contact-wrapper').removeClass().addClass(status);
+    }
 }
