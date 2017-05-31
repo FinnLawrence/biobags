@@ -126,7 +126,7 @@ const contactForm = {
         var request = new XMLHttpRequest();
 
         request.addEventListener("load", function () {
-            if (request.status === 302) { // CloudCannon redirects on success
+            if (request.status === 302 || request.status === 0) { // CloudCannon redirects on success
                 contactForm.setFormStatus("complete");
             }
         });
