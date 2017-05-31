@@ -1,16 +1,16 @@
 $(document).ready(function() {
-    
+
     $('#form-contact').submit(function(event) {
-        
+
         contactForm.setFormStatus("loading");
-        
+
         var formElement = document.getElementById("form-contact");
-        
+
         contactForm.submitForm(event, formElement);
     });
-    
+
     fader.fadeAllSections();
-    
+
     $("#title-bio").typed({
         strings: ["bio"],
         typeSpeed: 500,
@@ -125,17 +125,15 @@ const contactForm = {
 
         var request = new XMLHttpRequest();
 
-        request.addEventListener("load", contactForm.formSubmitted(request));
+        request.addEventListener("load", function () {
+            if (request.status === 302) { // CloudCannon redirects on success
+                contactForm.setFormStatus("complete");
+            }
+        });
 
         request.open(formElement.method, formElement.action);
         request.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
         request.send(contactForm.getFormData(formElement));
-    },
-    formSubmitted: function(request) {
-        console.log(request.status);
-        if (request.status === 302) {
-            contactForm.setFormStatus("complete");
-        }
     },
     setFormStatus: function(status) {
         $('#contact-wrapper').removeClass().addClass(status);
