@@ -1,5 +1,14 @@
 $(document).ready(function() {
 
+    setTimeout( function(){ 
+        if (fader.hasScrolled) {
+            // Do nothing
+        } else {
+            $('#down-arrow').addClass("visible"); 
+        }
+
+    }, 10000); // 10 seconds
+
     $('#form-contact').submit(function(event) {
 
         contactForm.setFormStatus("loading");
@@ -7,6 +16,10 @@ $(document).ready(function() {
         var formElement = document.getElementById("form-contact");
 
         contactForm.submitForm(event, formElement);
+    });
+
+    $('#down-arrow').click(function() {
+        fader.advanceFullscreenSection();
     });
 
     fader.fadeAllSections();
@@ -33,15 +46,28 @@ $(document).ready(function() {
             var current = $(window).scrollTop();
             var target = $( $.attr(this, 'href') ).offset().top;
             var duration = Math.abs(target - current) / 1.5;
+
+            fader.userScroll = false;
             $('html, body').animate({
                 scrollTop: target
             }, duration);
+
+            setTimeout(function() {
+                fader.userScroll = true;
+            }, duration * 2);
+
             return false;
         }
     });
 });
 
 $(window).scroll(function() {
+    fader.hasScrolled = true;
+    
+    if(fader.userScroll) {
+        $('#down-arrow').removeClass("visible");
+    }
+
     fader.fadeAllSections();
 
     fader.fadeNav();
@@ -49,6 +75,8 @@ $(window).scroll(function() {
 });
 
 const fader = {
+    hasScrolled: false,
+    userScroll: true,
     fadeAllSections: function() {
         $('.fade-wrapper').each(function() {
             fader.fadeSectionContent($(this));
@@ -80,6 +108,9 @@ const fader = {
         var viewportBottom = $(document).scrollTop() + window.innerHeight;
 
         if (Math.abs(bottom - viewportBottom) < 20) {
+
+            // Hide arrow
+            $('#down-arrow').removeClass('visible');
             var interval = 200; // milliseconds
             var time = interval;
             $('#contact-form .fade-in').each(function() {
@@ -106,6 +137,33 @@ const fader = {
         } else {
             $('nav').css("opacity", 0);
         }
+    },
+    advanceFullscreenSection: function() {
+        var viewportTop = $(document).scrollTop();
+
+        // Number of pixels we'll skip before checking for sections
+        var offsetTop = 50;
+
+        $('section.full-screen').each(function() {
+            console.log($(this).offset().top);
+
+            var sectionTop = $(this).offset().top;
+
+            if (sectionTop > viewportTop + offsetTop) {
+                var duration = Math.abs(sectionTop - viewportTop) / 1.5;
+
+                fader.userScroll = false;
+                $('html, body').animate({
+                    scrollTop: sectionTop
+                }, duration);
+                
+                setTimeout(function() {
+                    fader.userScroll = true;
+                }, duration * 2);
+
+                return false;
+            }
+        });
     }
 }
 

@@ -136,6 +136,47 @@ nav {
     }
 }
 
+.arrow-wrapper {
+    position: fixed;
+    left: 0px;
+    z-index: 20;
+    width: 100%;
+    height: 1.5vw;
+    text-align: center;
+    
+    .arrow {
+        width: 1.5vw;
+        height: 1.5vw;
+        display: inline-block;
+        border: .31vw solid transparent;
+        border-bottom-color: {{ site.color-green-primary }};
+        border-right-color: {{ site.color-green-primary }};
+        cursor: pointer;
+        @include transition(all 1s);
+        opacity: 0;
+        visibility: hidden;
+    }
+    
+    .arrow.visible {
+        opacity: 1;
+        visibility: visible;
+    }
+    
+    .arrow:hover, .arrow:focus {
+        border-bottom-color: {{ site.color-green-primary-hover }};
+        border-right-color: {{ site.color-green-primary-hover }};
+    }
+}
+
+.arrow-wrapper.arrow-wrapper-bottom {
+    bottom: 0px;
+    padding-bottom: 4vw;
+    
+    .arrow {
+        @include transform(rotate(45deg));
+    }
+}
+
 /* FORM */
 
 form {
