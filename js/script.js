@@ -123,7 +123,7 @@ const fader = {
         }
     },
     fadeLogo: function() {
-        $('#porter-logo').addClass("visible");
+        //$('#porter-logo').addClass("visible");
     },
     fadeNav: function() {
         var viewportTop = $(document).scrollTop();
